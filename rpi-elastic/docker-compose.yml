@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  es01:
+    image: pestotoast/elasticsearch-armhf
+    container_name: es01
+    environment:
+      - node.name=es01
+      #- cluster.name=es-docker-cluster
+      #- discovery.seed_hosts=es02,es03
+      - discovery.type=single-node
+      #- cluster.initial_master_nodes=es01,es02,es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+      #- http.cors.allow-headers=Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With
+      - http.cors.allow-headers=Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin
+      - http.cors.allow-credentials=true
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+
+volumes:
+    data01:
+        driver: local
