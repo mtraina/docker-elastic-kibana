@@ -1,0 +1,9 @@
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+discovery.zen.minimum_master_nodes: 1
+discovery.type: single-node
+xpack.ml.enabled: false
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+http.cors.allow-headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin
+http.cors.allow-credentials: true
