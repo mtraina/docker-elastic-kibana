@@ -7,3 +7,4 @@ http.cors.enabled: true
 http.cors.allow-origin: "*"
 http.cors.allow-headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With, Access-Control-Allow-Origin
 http.cors.allow-credentials: true
+path.repo: ["/elasticsearch/backup"]

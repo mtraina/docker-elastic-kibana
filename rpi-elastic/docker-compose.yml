@@ -12,11 +12,13 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - data01:/usr/share/elasticsearch/data
+      #- data01:/usr/share/elasticsearch/data
+      - esdata:/elasticsearch/data
+      - /home/pi/backup/elasticsearch/growth:/elasticsearch/backup
       - ./elasticsearch.yml:/elasticsearch/config/elasticsearch.yml:ro
     ports:
       - 9200:9200
 
 volumes:
-    data01:
+    esdata:
         driver: local
